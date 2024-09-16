@@ -1,0 +1,32 @@
+@import url("modern-normalize.css");
+@import url("color-font.css");
+@import url("utils.css");
+
+/* Basic rule */
+*,
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img,
+canvas,
+button,
+video {
+    display: block;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}

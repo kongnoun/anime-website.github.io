@@ -1,0 +1,12 @@
+:root {
+    --clr-font: rgb(251, 249, 250);
+    --clr-primary: rgb(168, 0, 56);
+    --clr-secondary: rgb(253, 0, 84);
+    --clr-dark: rgb(43, 32, 36);
+
+
+    --clr-black: rgb(0, 0, 0);
+    --clr-white: rgb(255, 255, 255);
+    --clr-brightpink:  rgb(253, 0, 84);
+}
+
