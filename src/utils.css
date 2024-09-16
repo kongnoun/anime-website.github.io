@@ -11,13 +11,13 @@ body {
 /* Universal class */
 .container {
     height: 100%;
-    margin: 1em 1em;
+    margin: 1em 5em;
     /* border: 1px solid var(--clr-brightpink); */
 }
 
 .container-one {
     height: 100%;
-    margin: 2em 1em;
+    margin: 2em 5em;
     /* border: 1px solid var(--clr-brightpink); */
 }
 
@@ -112,7 +112,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 35vh;
+    height: 40vh;
     grid-area: header;
     border-radius: 1.3rem;
     border: 2px solid var(--clr-brightpink);
@@ -190,22 +190,106 @@ button:hover {
     grid-template-areas: 
         "header header header header header header"
         "header header header header header header"
-        "left left left left right right";
-        gap: 15px;
+        "lefttop lefttop middle middle right right"
+        "leftbot leftbot middlebot middlebot right right";
+    gap: 15px;
 }
 
-.container-one .wrapper-left-content {
-    grid-area: left;
+/* lefttop grid */
+
+.container-one .wrapper-lefttop-content {
+    grid-area: lefttop;
     width: 100%;
     height: 25vh;
     border-radius: 1.3rem;
     border: 1px solid var(--clr-brightpink);
 }
 
+.welcome {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.3rem;
+    position: relative;
+
+
+}
+
+.welcome h1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    font-family: "Archivo Black", system-ui;
+    font-weight: 500;
+
+    letter-spacing: 2px;
+    background: linear-gradient(to right, var(--clr-white), var(--clr-brightpink));
+    background-clip: content-box;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+
+
+    z-index: 5;
+}
+
+.welcome .welcome-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/img2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 1.3rem;
+    filter: brightness(0.85);
+    
+
+
+}
+
+.about {
+    width: 100%;
+    height: 8vh;
+    margin-top: 1em;
+    background-color: var(--clr-primary);
+    border-radius: 1.3em;
+    border: 3px solid var(--clr-brightpink);
+    box-shadow: 
+        0 0 0.5em var(--clr-brightpink);
+}
+
+/* leftbot grid */
+
+.container-one .wrapper-leftbot-content {
+    grid-area: leftbot;
+    width: 100%;
+    height: 10vh;
+    border-radius: 1.3rem;
+    border: 1px solid var(--clr-brightpink);
+}
+
+/* middle grid */
+
+.container-one .wrapper-mid-content {
+    grid-area: middle;
+    width: 100%;
+    height: 15vh;
+    border-radius: 1.3rem;
+    border: 2px solid var(--clr-brightpink);
+}
+
+/* Right grid */
+
 .container-one .wrapper-right-content {
     grid-area: right;
     width: 100%;
-    height: 25vh;
+    height: 35vh;
     border-radius: 1rem;
     border: 1px solid var(--clr-brightpink);
 
