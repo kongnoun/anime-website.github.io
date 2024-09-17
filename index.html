@@ -26,11 +26,11 @@
                     <a href="#">Anizero.io</a>
                 </div>
                 <div class="nav-right-links">
-                    <!-- <a href="#">Home</a>
+                    <a href="#">Home</a>
                     <a href="#">Genre</a>
-                    <a href="#">Rating</a> -->
+                    <a href="#">Rating</a>
                     <a href="#" class="menu-button">
-                        <div class="material-symbols-outlined">
+                        <div class="material-symbols-outlined" id="menu-El">
                             menu
                         </div>
                     </a>
@@ -54,10 +54,15 @@
             <div class="slider">
                 <button class="prev" onclick="showPrevSlide()">&#10094;</button>
                 <div class="slides">
-                    <img src="image1.jpg" alt="Image 1">
-                    <img src="image2.jpg" alt="Image 2">
-                    <img src="image3.jpg" alt="Image 3">
-                    <img src="image4.jpg" alt="Image 4">
+                    <div class="slide"><img src="image1.jpg" alt="Image 1"><p>Text 1</p></div>
+                    <div class="slide"><img src="image2.jpg" alt="Image 2"><p>Text 2</p></div>
+                    <div class="slide"><img src="image3.jpg" alt="Image 3"><p>Text 3</p></div>
+                    <div class="slide"><img src="image4.jpg" alt="Image 4"><p>Text 4</p></div>
+                    <!-- Duplicate slides for infinite loop effect -->
+                    <div class="slide"><img src="image1.jpg" alt="Image 1"><p>Text 1</p></div>
+                    <div class="slide"><img src="image2.jpg" alt="Image 2"><p>Text 2</p></div>
+                    <div class="slide"><img src="image3.jpg" alt="Image 3"><p>Text 3</p></div>
+                    <div class="slide"><img src="image4.jpg" alt="Image 4"><p>Text 4</p></div>
                 </div>
                 <button class="next" onclick="showNextSlide()">&#10095;</button>
                 <div class="dots">
@@ -80,19 +85,33 @@
             </div>
         </div>
         <div class="wrapper-midtop-content">
-            <div class="mid-content">
-                <div class="mid-img">midtop</div>
+            <div class="midtop-content">
+                <div class="mid-star">
+                    <div class="material-symbols-outlined" id="star-El">
+                        kid_star
+                    </div>
+                    <h1>Star</h1>
+                </div>
             </div>
         </div>
         <div class="wrapper-midbot-content">
-            <div class="mid-content">
-                <div class="mid-img">midbot</div>
+            <div class="midbot-content">
+                <div class="mid-bookmark">
+                    <h1>Bookmark</h1>
+                    <div class="material-symbols-outlined" id="bookmark-El">
+                        bookmark
+                    </div>
+                </div>
             </div>
         </div>
         <div class="wrapper-right-content"> 
             right
         </div>
 
+    </section>
+
+    <section class="container-two">
+        
     </section>
 
 

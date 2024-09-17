@@ -17,13 +17,13 @@ body {
 
 .container-one {
     height: 100%;
-    margin: 2em 5em;
+    margin: 2em 3em;
     /* border: 1px solid var(--clr-brightpink); */
 }
 
 /* icon */
 
-.material-symbols-outlined {
+#menu-El {
   font-variation-settings:
   'FILL' 0,
   'wght' 500,
@@ -107,46 +107,66 @@ body {
 
 /* Automated image slider  */
 
-.wrapper-slider {
+/* Parent container */
+.container-one .wrapper-slider {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     width: 100%;
     height: 40vh;
     grid-area: header;
     border-radius: 1.3rem;
     border: 2px solid var(--clr-brightpink);
-}
-
-.wrapper-slider .slider {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Slider container */
+.wrapper-slider .slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Slides container */
 .wrapper-slider .slider .slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 200%; /* Ensure enough width for all slides */
 }
 
-.wrapper-slider .slider .slides img {
+/* Individual slide */
+.wrapper-slider .slider .slide {
+    min-width: 100%; /* Ensure each slide takes full width */
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 1.3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+/* Image within slide */
+.wrapper-slider .slider .slide img {
     width: 100%;
-    border-radius: 10px;
+    height: 100%;
+    object-fit: cover; /* Ensure images cover the slide area */
+    border-radius: 1.3rem;
 }
 
+/* Navigation buttons */
 button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(203, 6, 55, 0.2);
     color: white;
     border: none;
-    padding: 10px;
+    padding: 13px;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 100%;
+    transition: all 350ms ease;
+    z-index: 10; /* Ensure buttons are on top */
 }
 
 button.prev {
@@ -158,19 +178,22 @@ button.next {
 }
 
 button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(76, 9, 33, 0.9);
 }
 
-.wrapper-slider .slider .dots {
+/* Dots container */
+.dots {
     text-align: center;
     position: absolute;
     bottom: 10px;
     width: 100%;
+    z-index: 10; /* Ensure dots are on top */
 }
 
-.wrapper-slider .slider .dot {
-    height: 13px;
-    width: 13px;
+/* Individual dot */
+.dot {
+    height: 10px;
+    width: 10px;
     margin: 0 5px;
     background-color: var(--clr-brightpink);
     border-radius: 50%;
@@ -178,10 +201,10 @@ button:hover {
     transition: background-color 0.6s ease;
 }
 
-.wrapper-slider .slider .dot.active {
-    filter: brightness(0.9);
+.dot.active {
     background-color: var(--clr-primary);
 }
+
 
 /* Grid for landing page */
 
@@ -193,7 +216,7 @@ button:hover {
         "lefttop lefttop lefttop middletop right right"
         "lefttop lefttop lefttop middlebot right right"
         "leftbot leftbot leftbot leftbot right right";
-    gap: 15px;
+    gap: 16px;
 }
 
 /* lefttop grid */
@@ -203,10 +226,33 @@ button:hover {
     width: 100%;
     height: 31vh;
     border-radius: 1.3rem;
-    background: radial-gradient(var(--clr-dark),var(--clr-black),var(--clr-primary),var(--clr-primary));
-    border: 1px solid var(--clr-brightpink);
-
+    background-color: var(--clr-dark);
+    border: 4px solid var(--clr-brightpink);
+    /* animation: glowInverted 6s ease-in-out infinite; */
+    transition: all 350ms ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    
 }
+
+.wrapper-lefttop-content:hover {
+    background-color: var(--clr-white);
+    transform: translateY(-3px);
+}
+
+
+/* @keyframes glowInverted {
+    0%, 100% {
+        box-shadow: 
+        0 0 0.2em var(--clr-primary),
+        inset 0 0 1em var(--clr-primary);
+    }
+    50% {
+        box-shadow: 
+        0 0 0.2em var(--clr-brightpink),
+        inset 0 0 10em var(--clr-brightpink);
+    }
+} */
 
 .welcome {
     width: 100%;
@@ -221,16 +267,17 @@ button:hover {
     width: 100%;
     height: 100%;
     position: absolute;
+    margin-left: 0.15em;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-family: "Archivo Black", system-ui;
     font-weight: 500;
 
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     background: linear-gradient(to right, var(--clr-white), var(--clr-brightpink));
     background-clip: content-box;
     -webkit-text-fill-color: transparent;
@@ -238,7 +285,7 @@ button:hover {
 
 
 
-    z-index: 5;
+    z-index: 10;
 }
 
 .welcome .welcome-img {
@@ -248,24 +295,11 @@ button:hover {
     background-image: url('../img/img2.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-attachment: scroll;
+    background-size: cover;
     border-radius: 1.3rem;
     filter: brightness(0.9);
-    
-
-
 }
-
-/* .about {
-    width: 100%;
-    height: 8vh;
-    margin-top: 1em;
-    background-color: var(--clr-primary);
-    border-radius: 1.3em;
-    border: 3px solid var(--clr-brightpink);
-    box-shadow: 
-        0 0 0.5em var(--clr-brightpink);
-} */
 
 /* leftbot grid */
 
@@ -274,27 +308,120 @@ button:hover {
     width: 100%;
     height: 4vh;
     border-radius: 1.3rem;
-    border: 1px solid var(--clr-brightpink);
+    border: 3px solid var(--clr-brightpink);
+}
+
+.about {
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-brightpink);
+    border-radius: 1.3em;
+    box-shadow: 
+        0 0 0.5em var(--clr-brightpink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: brightness(0.9);
+}
+
+.about .about-txt {
+    font-family: 'League Spartan';
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
 /* middle top grid */
 
-.container-one .wrapper-midtop-content {
+.wrapper-midtop-content {
     grid-area: middletop;
     width: 100%;
     height: 15vh;
+    background: var(--clr-brightpink);
     border-radius: 1.3rem;
     border: 2px solid var(--clr-brightpink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 350ms ease;
+    filter: brightness(0.85);
+}
+
+.wrapper-midtop-content:hover {
+    filter: brightness(1);
+    transform: translateY(-3px);
+    background: var(--clr-white);
+    color: var(--clr-brightpink);
+}
+
+
+
+.midtop-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mid-star {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#star-El {
+    font-size: 4rem;
+    font-weight: bold; /* Adjust size as needed */
 }
 
 /* middle bot grid */
 
-.container-one .wrapper-midbot-content {
+.wrapper-midbot-content {
     grid-area: middlebot;
     width: 100%;
     height: 15vh;
+    background: var(--clr-brightpink);
     border-radius: 1.3rem;
     border: 2px solid var(--clr-brightpink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 350ms ease;
+    filter: brightness(0.85);
+}
+
+.wrapper-midbot-content:hover {
+    filter: brightness(1);
+    transform: translateY(-3px);
+    background: var(--clr-white);
+    color: var(--clr-brightpink);
+}
+
+
+
+.midbot-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.mid-bookmark {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bookmark-El {
+    font-size: 4rem;
+    font-weight: bold; /* Adjust size as needed */
 }
 
 /* Right grid */
@@ -302,10 +429,9 @@ button:hover {
 .container-one .wrapper-right-content {
     grid-area: right;
     width: 100%;
-    height: 36vh;
+    height: 37vh;
     border-radius: 1rem;
     border: 1px solid var(--clr-brightpink);
-
 }
 
 
