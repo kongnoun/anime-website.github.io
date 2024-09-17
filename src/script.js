@@ -10,8 +10,8 @@ function showNextSlide() {
         slides.style.transform = `translateX(0)`;
         setTimeout(() => {
             slides.style.transition = 'transform 0.5s ease-in-out';
-            slides.style.transform = `translateX(-${(currentIndex + 1) * 100}%)`;
             currentIndex++;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
             updateDots(); // Ensure dots are updated after the transition
         }, 50);
     } else {
@@ -28,8 +28,8 @@ function showPrevSlide() {
         slides.style.transform = `translateX(-${currentIndex * 100}%)`;
         setTimeout(() => {
             slides.style.transition = 'transform 0.5s ease-in-out';
-            slides.style.transform = `translateX(-${(currentIndex - 1) * 100}%)`;
             currentIndex--;
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
             updateDots(); // Ensure dots are updated after the transition
         }, 50);
     } else {
