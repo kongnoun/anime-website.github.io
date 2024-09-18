@@ -1,7 +1,8 @@
 @import url("color-font.css");
 
 body {
-    min-height: 100%;
+    max-width: 100%;
+    min-height: 100vh;
     height: auto;
     color: var(--clr-font);
     background: linear-gradient(to top, var(--clr-dark), var(--clr-black));
@@ -10,14 +11,19 @@ body {
 
 /* Universal class */
 .container {
+    max-width: calc(100% - 2em);
     height: 100%;
-    margin: 1em 5em;
+    margin: 1em 1em;
     /* border: 1px solid var(--clr-brightpink); */
 }
 
 .container-one {
+    max-width: calc(100% - 2em);
     height: 100%;
-    margin: 2em 3em;
+    margin: 0em 1em;
+    padding: 0.75em;
+    border-radius: 1.3rem;
+    background-color: var(--clr-dark);
     /* border: 1px solid var(--clr-brightpink); */
 }
 
@@ -143,7 +149,9 @@ body {
     height: 100%;
     box-sizing: border-box;
     border-radius: 1.3rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.2), 
+        inset 0 0 1em var(--clr-black);
     position: relative;
     text-align: center;
 }
@@ -247,7 +255,8 @@ button:hover {
     width: 100%;
     height: 31vh;
     border-radius: 1.3rem;
-    background-color: var(--clr-dark);
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
     border: 4px solid var(--clr-brightpink);
     /* animation: glowInverted 6s ease-in-out infinite; */
     transition: all 350ms ease;
@@ -301,6 +310,7 @@ button:hover {
 
     letter-spacing: 1px;
     color: var(--clr-white);
+    text-shadow: 0 0 0.4em var(--clr-black);
 
 
 
@@ -393,7 +403,7 @@ button:hover {
 }
 
 #star-El {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold; /* Adjust size as needed */
 }
 
@@ -441,7 +451,7 @@ button:hover {
 }
 
 #bookmark-El {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold; /* Adjust size as needed */
 }
 
@@ -451,9 +461,49 @@ button:hover {
     grid-area: right;
     width: 100%;
     height: 37vh;
-    border-radius: 1rem;
-    border: 1px solid var(--clr-brightpink);
+    border-radius: 1.3rem;
+    padding: 0.75em;
+    background: linear-gradient(to bottom, var(--clr-dark), var(--clr-primary));
 }
+
+.wrapper-right-content {
+    width: 100%;
+    height: 37vh;
+    border-radius: 1.3rem;
+}
+
+.wrapper-contact {
+    width: 100%;   
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* creates two columns */
+    grid-template-rows: repeat(2, 1fr); /* creates two rows */
+    gap: 15px; /* optional: adds space between grid items */
+}
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.3rem;
+    background-color: var(--clr-brightpink);
+    filter: brightness(1);
+
+    transition: all 350ms ease;
+}
+
+.contact-content div {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.contact-content:hover {
+    transform: translateY(-3px);
+    color: var(--clr-brightpink);
+    background-color: var(--clr-white);
+}
+
+
 
 
 

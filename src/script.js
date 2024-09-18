@@ -1,54 +1,41 @@
-let currentIndex = 0;
-const slides = document.querySelector('.slides');
-const totalSlides = slides.children.length / 2; // Adjust for duplicated slides
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const slidesContainer = document.querySelector('.slides');
 
-function showNextSlide() {
-    currentIndex++;
-    if (currentIndex >= totalSlides) {
-        slides.style.transition = 'none';
-        currentIndex = 0;
-        slides.style.transform = `translateX(0)`;
-        setTimeout(() => {
-            slides.style.transition = 'transform 0.5s ease-in-out';
-            currentIndex++;
-            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots(); // Ensure dots are updated after the transition
-        }, 50);
-    } else {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots();
-    }
-}
-
-function showPrevSlide() {
-    currentIndex--;
-    if (currentIndex < 0) {
-        slides.style.transition = 'none';
-        currentIndex = totalSlides - 1;
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        setTimeout(() => {
-            slides.style.transition = 'transform 0.5s ease-in-out';
-            currentIndex--;
-            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots(); // Ensure dots are updated after the transition
-        }, 50);
-    } else {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots();
-    }
-}
-
-function currentSlide(index) {
-    currentIndex = index;
-    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-    updateDots();
-}
-
-function updateDots() {
-    const dots = document.querySelectorAll('.dot');
+function showSlides() {
+    const offset = -slideIndex * 100;
+    slidesContainer.style.transform = `translateX(${offset}%)`;
     dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex % totalSlides);
+        dot.className = dot.className.replace(' active', '');
+        if (index === slideIndex % dots.length) {
+            dot.className += ' active';
+        }
     });
 }
 
-setInterval(showNextSlide, 5500); // Change slide every 5.5 seconds
+function showNextSlide() {
+    slideIndex++;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    }
+    showSlides();
+}
+
+function showPrevSlide() {
+    slideIndex--;
+    if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+    }
+    showSlides();
+}
+
+function currentSlide(index) {
+    slideIndex = index;
+    showSlides();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSlides();
+    setInterval(showNextSlide, 5000); // Change slide every 3 seconds
+});
