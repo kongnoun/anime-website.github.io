@@ -2,7 +2,7 @@
 
 body {
     max-width: 100%;
-    min-height: 100vh;
+    min-height: 200vh;
     height: auto;
     color: var(--clr-font);
     background: linear-gradient(to top, var(--clr-dark), var(--clr-black));
@@ -306,7 +306,7 @@ button:hover {
     justify-content: center;
     align-items: center;
 
-    font-size: 1.8rem;
+    font-size: auto;
     font-family: "Archivo Black", system-ui;
     font-weight: 500;
 
@@ -357,7 +357,7 @@ button:hover {
 
 .about .about-txt {
     font-family: 'League Spartan';
-    font-size: 1.2rem;
+    font-size: auto;
     font-weight: 400;
 }
 
@@ -526,13 +526,27 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: 0;
+    transform: translateY(0px);
+    transition:  1.5s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
-.wrapper-info .info-content {
+
+.wrapper-info.visible {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+
+.info-content {
     width: 400px;
-    height: 1005;
+    height: 100%;
     border: 2px solid var(--clr-brightpink);
 }
+
+
 
 .wrapper-info .info-content h1 {
     font-size: 1.5em;
@@ -543,6 +557,8 @@ button:hover {
     font-size: 1em;
     font-family: 'Achivo Black', system-ui;
 }
+
+
 
 
 

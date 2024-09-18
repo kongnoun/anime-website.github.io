@@ -39,3 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlides();
     setInterval(showNextSlide, 5000); // Change slide every 3 seconds
 });
+
+
+// scrool animation for info 
+// JavaScript
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  });
+  
+  document.querySelectorAll('.wrapper-info').forEach((element) => {
+    observer.observe(element);
+  });
+  
