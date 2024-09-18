@@ -1,6 +1,7 @@
 @import url("modern-normalize.css");
 @import url("color-font.css");
 @import url("utils.css");
+@import url("media.css");
 
 /* Basic rule */
 *,

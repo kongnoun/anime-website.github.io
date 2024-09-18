@@ -1,0 +1,27 @@
+@import url("utils.css");
+
+@media (max-width: 440px) {
+    .container-one .wrapper-slider {
+        height: 30vh; /* Adjust height for smaller screens */
+        border-radius: 1rem; /* Slightly smaller border radius */
+    }
+
+    .wrapper-slider .slider .slide {
+        border: 2px solid var(--clr-primary); /* Thinner border */
+        font-size: 1.2em; /* Adjust font size */
+    }
+
+    .wrapper-slider .slider .slide p {
+        font-size: 1em; /* Smaller font size for text */
+        padding: 8px; /* Adjust padding */
+    }
+
+    button {
+        padding: 10px; /* Smaller buttons */
+    }
+
+    .dot {
+        height: 10px; /* Smaller dots */
+        width: 10px;
+    }
+}
