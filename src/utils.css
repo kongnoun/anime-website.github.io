@@ -7,6 +7,7 @@ body {
     height: auto;
     color: var(--clr-font);
     background: linear-gradient(to top, var(--clr-dark), var(--clr-black));
+    margin: 0.5em 1em;
 }
 
 /* Universal class */
