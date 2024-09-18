@@ -15,39 +15,19 @@ function showSlides() {
 }
 
 function showNextSlide() {
-    currentIndex++;
-    if (currentIndex >= totalSlides) {
-        slides.style.transition = 'none';
-        currentIndex = 0;
-        slides.style.transform = `translateX(0)`;
-        setTimeout(() => {
-            slides.style.transition = 'transform 0.5s ease-in-out';
-            currentIndex++;
-            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots(); // Ensure dots are updated after the transition
-        }, 50);
-    } else {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots();
+    slideIndex++;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
     }
+    showSlides();
 }
 
 function showPrevSlide() {
-    currentIndex--;
-    if (currentIndex < 0) {
-        slides.style.transition = 'none';
-        currentIndex = totalSlides - 1;
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        setTimeout(() => {
-            slides.style.transition = 'transform 0.5s ease-in-out';
-            currentIndex--;
-            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-            updateDots(); // Ensure dots are updated after the transition
-        }, 50);
-    } else {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        updateDots();
+    slideIndex--;
+    if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
     }
+    showSlides();
 }
 
 function currentSlide(index) {
@@ -55,11 +35,7 @@ function currentSlide(index) {
     showSlides();
 }
 
-function updateDots() {
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex % totalSlides);
-    });
-}
-
-setInterval(showNextSlide, 5500); // Change slide every 5.5 seconds
+document.addEventListener('DOMContentLoaded', () => {
+    showSlides();
+    setInterval(showNextSlide, 5000); // Change slide every 3 seconds
+});
