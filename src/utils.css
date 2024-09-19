@@ -649,7 +649,7 @@ button:hover {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* Single column layout */
         grid-template-rows: repeat(2, 1fr); /* Four rows */
-        gap: 4px; /* Adjust gap */
+        gap: 8px; /* Adjust gap */
     }
 
     .contact-content {
