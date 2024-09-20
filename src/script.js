@@ -1,3 +1,13 @@
+// Page loader
+
+window.addEventListener('load', function() {
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+});
+
+
+// Automated image slider 
+
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
@@ -53,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// scrool animation for info 
+// scroll animation for info 
 // JavaScript
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
