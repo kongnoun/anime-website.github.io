@@ -14,6 +14,18 @@ function showSlides() {
     });
 }
 
+function loopSlides() {
+    slideIndex++;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    }
+    showSlides();
+}
+
+setInterval(loopSlides, 5000);
+    
+
+
 function showNextSlide() {
     slideIndex++;
     if (slideIndex >= slides.length) {
@@ -53,7 +65,28 @@ const observer = new IntersectionObserver((entries) => {
     });
   });
   
-  document.querySelectorAll('.wrapper-info').forEach((element) => {
+    document.querySelectorAll('.container-two').forEach((element) => {
+        observer.observe(element);
+
+});
+
+
+// Create a new Intersection Observer for the footer
+
+const footerObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visiblefooter');
+      } else {
+        entry.target.classList.remove('visiblefooter');
+      }
+    });
+  });
+  
+  // Observe the footer element
+  document.querySelectorAll('.footer').forEach((element) => {
     observer.observe(element);
   });
+  
+  
   
